@@ -1,4 +1,4 @@
-export async function registerUser(username, password) {
+export default async function registerUser(username, password) {
     const response = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/users/register', {
         method: "POST",
         headers: {
