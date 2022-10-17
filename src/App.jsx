@@ -9,12 +9,13 @@ import Posts from "./components/Post"
 function App() {
   return (
     <div>
-
+      
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/Post/Posts" element={<Posts/>} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/post" element={<Posts/>} />
+        {/* <Route path="/post/postId" element={<SinglePost/>} */}
       </Routes>
-      <Navbar />
+     
 
     </div>
   )

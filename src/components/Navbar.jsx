@@ -4,7 +4,9 @@ export default function Navbar() {
     return (
         <div>
             <Link to="/">Homepage</Link>
-            <Link to="/Post/Posts">POSTS</Link>
+            <Link to="/post">POSTS</Link>
+            
+
         </div>
     )
 }
