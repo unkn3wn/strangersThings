@@ -34,14 +34,23 @@ export async function loginUser(username, password) {
     return result;
 }
 
-export async function fetchMe() {
-    const response = await fetch('https://strangers-things.herokuapp.com/api/COHORT-NAME/users/me', {
+export async function fetchMe(token) {
+    const response = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/users/me', {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer TOKEN_STRING_HERE'
+            'Authorization': `Bearer ${token}`,
         }
     }
     )
     const result = await response.json();
     return result;
+}
+
+export async function fetchPosts() {
+    const response = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts')
+        .then(response => response.json())
+        .then(result => {
+            console.log(result);
+        })
+        .catch(console.error);
 }
