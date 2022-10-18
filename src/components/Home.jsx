@@ -1,4 +1,4 @@
-import Register from "../components/Register"
+
 import { fetchMe } from "../api/auth"
 import { useEffect, useState } from "react"
 
@@ -23,7 +23,6 @@ function Homepage() {
     return (
         <div className="App">
             <h4>{user?.username}</h4>
-            <Register setToken={setToken} />
         </div>
     );
 }
