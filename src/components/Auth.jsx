@@ -2,11 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react"
 import { loginUser, registerUser } from "../api/auth"
+import LogoutUser from "./Logout";
 
 
-const Login = ({setToken}) => {
+const Login = ({ setToken }) => {
   const { method } = useParams();
-  
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,6 +24,7 @@ const Login = ({setToken}) => {
           } else {
             result = await loginUser(username, password);
           }
+          console.log(result);
           const token = result.data.token;
           localStorage.setItem("token", token);
           setToken(token);
@@ -41,6 +43,7 @@ const Login = ({setToken}) => {
           placeholder="password"
         />
         <button type="submit">
+          {method === "register" ? "Register" : "Login"}
         </button>
       </form>
     </div>

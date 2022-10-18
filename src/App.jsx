@@ -14,11 +14,11 @@ function App() {
 
   return (
     <div>
-
+      <Navbar setToken={setToken} />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/post" element={<Posts />} />
-        <Route path="/auth/:method" element={<Auth setToken={setToken}/>}/>
+        <Route path="/auth/:method" element={<Auth setToken={setToken} />} />
       </Routes>
 
 
