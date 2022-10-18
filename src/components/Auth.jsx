@@ -1,17 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { loginUser, registerUser } from "../api/auth"
-import Authhook from "../Hooks/Authhook"
 
-const Login = () => {
 
+const Login = ({setToken}) => {
   const { method } = useParams();
-  const { setToken } = Authhook();
-
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
 
   return (
 
@@ -49,9 +46,6 @@ const Login = () => {
     </div>
 
   )
-
-
-
 
 }
 
