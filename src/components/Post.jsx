@@ -2,21 +2,29 @@ import { useEffect, useState } from "react"
 import { fetchPosts } from "../api/auth"
 
 export default function Posts() {
-    const [posts, setPosts] = useState();
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         async function loadPosts() {
-            const posts = await fetchPosts();
-            setPosts(posts);
+            const result = await fetchPosts();
+            setPosts(result.data.posts)
+
         }
 
         loadPosts();
     }, []);
     return (
-        <div className={postContainer}>
+        <div>
             {posts.map((post) => {
                 return (
-                    <h3>{post}</h3>
+                    <div key={post.title}>
+                        <h3>{post.title}</h3>
+                        <h3>{post.description}</h3>
+                        <h4>{post.price}</h4>
+                        <h4>{post.author.username}</h4>
+                        <h3>{post.location}</h3>
+
+                    </div>
                 );
             })}
         </div>

@@ -48,9 +48,6 @@ export async function fetchMe(token) {
 
 export async function fetchPosts() {
     const response = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts')
-        .then(response => response.json())
-        .then(result => {
-            console.log(result);
-        })
-        .catch(console.error);
+    const result = await response.json();
+    return result;
 }
