@@ -1,25 +1,29 @@
-import React from "react";
-import  {useState,useEffect} from "react"
-import { deletePost } from "../api/auth";
+// import React from "react";
+// import { useState, useEffect } from "react"
+// import { deletePost } from "../api/auth";
 
-const DeleteButton =() =>{
+// const DeleteButton = () => {
 
-  const [post, setPost] =useState("");
+//   const [post, setPost] = useState("");
 
-  return(
-    <div>
+//   return (
+//     <div>
 
-      <button>Delete</button>
-      
-      
-
-    </div>
-
-
-
-  )
+//       <button
+//         onClick={async () => {
+//           await deletePost()
+//         }}
+//       >Delete</button>
 
 
 
+//     </div>
 
-}
+
+
+//   )
+
+
+
+
+// }
