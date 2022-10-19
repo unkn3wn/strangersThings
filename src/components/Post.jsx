@@ -41,7 +41,7 @@ export default function Posts() {
 
                                             singlePost._id !== post._id)
                                     });
-
+                                    
                                     setPosts(currentPost);
 
                                 }

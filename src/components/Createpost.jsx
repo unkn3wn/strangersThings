@@ -3,6 +3,7 @@ import { createPost } from "../api/auth";
 import { useState } from "react";
 import useAuth from "../Hooks/Authhook";
 
+
 function CreateNewPost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -15,7 +16,11 @@ function CreateNewPost() {
       <form
         onSubmit={async (event) => {
           event.preventDefault();
-          const result = await createPost(token,title, description, price);
+          const result = await createPost(token, title, description, price);
+          setTitle("");
+          setDescription("");
+          setPrice("");
+          
           console.log(result);
           console.log(token);
         }}
@@ -29,6 +34,7 @@ function CreateNewPost() {
           placeholder="title"
           onChange={(event) => {
             setTitle(event.target.value);
+           
           }}
         />
         <label>Description:</label>
@@ -39,6 +45,7 @@ function CreateNewPost() {
           placeholder="description"
           onChange={(event) => {
             setDescription(event.target.value);
+           
           }}
         />
         <label>Price</label>
@@ -49,6 +56,7 @@ function CreateNewPost() {
           placeholder="price"
           onChange={(event) => {
             setPrice(event.target.value);
+            
           }}
         />
 
