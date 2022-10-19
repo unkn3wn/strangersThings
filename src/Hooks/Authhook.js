@@ -15,7 +15,7 @@ export default function useAuth() {
         if (token) {
             getMe();
         }
-        console.log("in the useEffect");
+        console.log(token);
     }, [token]);
 
     return {

@@ -3,8 +3,6 @@ import { createPost } from "../api/auth";
 import { useState } from "react";
 import useAuth from "../Hooks/Authhook";
 
-
-
 function CreateNewPost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -17,8 +15,9 @@ function CreateNewPost() {
       <form
         onSubmit={async (event) => {
           event.preventDefault();
-          const result = await createPost(title, description, token);
-          console.log(result)
+          const result = await createPost(token,title, description, price);
+          console.log(result);
+          console.log(token);
         }}
       >
         <h3>Create Post</h3>
@@ -59,4 +58,4 @@ function CreateNewPost() {
   );
 }
 
-export default CreateNewPost
+export default CreateNewPost;

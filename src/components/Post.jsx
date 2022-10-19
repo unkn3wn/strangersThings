@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { fetchPosts } from "../api/auth"
 import CreateNewPost from "../components/Createpost"
 
+
 export default function Posts() {
 
 
@@ -25,9 +26,7 @@ export default function Posts() {
                         <h3>{post.title}</h3>
                         <h3>{post.description}</h3>
                         <h4>{post.price}</h4>
-                        <h4>{post.author.username}</h4>
-                        <h3>{post.location}</h3>
-
+                        
                     </div>
                 );
             })}
