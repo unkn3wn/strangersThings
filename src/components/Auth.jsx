@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react"
 import { loginUser, registerUser } from "../api/auth"
-import LogoutUser from "./Logout";
+
 
 
 const Login = ({ setToken }) => {

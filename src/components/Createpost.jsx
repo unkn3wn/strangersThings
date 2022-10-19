@@ -1,19 +1,24 @@
 import React from "react";
 import { createPost } from "../api/auth";
 import { useState } from "react";
+import useAuth from "../Hooks/Authhook";
 
 
 
 function CreateNewPost() {
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+
+  const { token } = useAuth();
 
   return (
     <div>
       <form
         onSubmit={async (event) => {
           event.preventDefault();
-          const result = await createPost(title, description);
+          const result = await createPost(title, description, token);
+          console.log(result)
         }}
       >
         <h3>Create Post</h3>
@@ -27,15 +32,25 @@ function CreateNewPost() {
             setTitle(event.target.value);
           }}
         />
-        <label>description:</label>
+        <label>Description:</label>
         <input
           variant="standard"
           value={description}
+          type="text"
+          placeholder="description"
           onChange={(event) => {
             setDescription(event.target.value);
           }}
+        />
+        <label>Price</label>
+        <input
+          variant="standard"
+          value={price}
           type="text"
-          placeholder="description"
+          placeholder="price"
+          onChange={(event) => {
+            setPrice(event.target.value);
+          }}
         />
 
         <button type="submit">Submit</button>

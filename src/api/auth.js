@@ -52,20 +52,23 @@ export async function fetchPosts() {
     return result;
 }
 
-export const createPost = async (title, description, price, location) => {
+export const createPost = async (title, description, price, token) => {
     const response = await fetch(
-        `https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts`,
+        'https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts',
         {
             method: "Post",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify({
-                title,
-                description,
-                price,
-                location,
-            }),
+                post: {
+                    title,
+                    description,
+                    price
+                }
+            })
+
         }
     );
     const result = await response.json();

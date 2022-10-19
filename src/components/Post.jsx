@@ -4,7 +4,7 @@ import CreateNewPost from "../components/Createpost"
 
 export default function Posts() {
 
-    
+
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function Posts() {
     }, []);
     return (
         <div>
-            <CreateNewPost/>
+            <CreateNewPost />
             {posts.map((post) => {
                 return (
                     <div key={post.title}>
@@ -31,7 +31,7 @@ export default function Posts() {
                     </div>
                 );
             })}
-           
+
         </div>
     )
 }
