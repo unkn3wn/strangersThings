@@ -3,11 +3,13 @@ import { fetchPosts } from "../api/auth"
 import CreateNewPost from "../components/Createpost"
 import { deletePost } from "../api/auth";
 import useAuth from "../Hooks/Authhook";
+import { useNavigate } from "react-router-dom";
 
 export default function Posts() {
 
     const [posts, setPosts] = useState([]);
     const { token } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function loadPosts() {
@@ -27,6 +29,9 @@ export default function Posts() {
                         <h3>{post.title}</h3>
                         <h3>{post.description}</h3>
                         <h4>{post.price}</h4>
+                        <button onClick={() => {
+                            navigate(`/post/${post._id}`)
+                        }}>See Details</button>
                         <button
                             onClick={async () => {
                                 const deletedPost = await deletePost(token, post._id)
@@ -41,7 +46,7 @@ export default function Posts() {
 
                                             singlePost._id !== post._id)
                                     });
-                                    
+
                                     setPosts(currentPost);
 
                                 }
