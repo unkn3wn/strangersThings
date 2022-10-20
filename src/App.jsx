@@ -7,6 +7,7 @@ import Auth from "./components/Auth";
 import useAuth from "./Hooks/Authhook";
 import CreateNewPost from "./components/Createpost";
 
+
 // import { useState, useEffect} from "react"
 
 function App() {
@@ -19,9 +20,9 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/post" element={<Posts />} />
         <Route path="/CreateNewPost" element={<CreateNewPost />} />
-       
+
         <Route path="/auth/:method" element={<Auth setToken={setToken} />} />
-       
+
       </Routes>
     </div>
   );

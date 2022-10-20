@@ -92,14 +92,3 @@ export const deletePost = async (token, id) => {
 
 }
 
-export const singlePost = async (id) => {
-    const response = await fetch(
-        `https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts/${id}`, 
-
-      
-        
-    );
-        const result = await response.json();
-        return result;
-
-};

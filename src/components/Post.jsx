@@ -3,15 +3,13 @@ import { fetchPosts } from "../api/auth";
 import CreateNewPost from "../components/Createpost";
 import { deletePost } from "../api/auth";
 import useAuth from "../Hooks/Authhook";
-import { useNavigate } from "react-router-dom";
-import PostDetail from "./DetailPost";
-
-
-
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
   const { token } = useAuth();
+  const { postId } = useParams();
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,7 +21,7 @@ export default function Posts() {
     loadPosts();
   }, []);
   return (
-    <div>
+    <div key={posts._id}>
       <CreateNewPost />
       {posts.map((post) => {
         return (
@@ -34,7 +32,7 @@ export default function Posts() {
 
             <button
               onClick={() => {
-                navigate(<PostDetail/>);
+                navigate(`/post/${postId}`)
               }}
             >
               See Details
