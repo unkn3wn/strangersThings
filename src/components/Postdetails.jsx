@@ -15,22 +15,23 @@ const SpecificPost = () => {
 
   useEffect(() => {
     async function loadPosts() {
-      const singlePost = await fetchPosts();
-      setSinglePost(singlePost);
+      const posts = await fetchPosts();
+      if (dP === singlePost) {
+        const currentPost = singlePost.filter((specPost) => {
+          console.log("hello")
+          return dP === specPost;
+        });
+    
+        setSinglePost(currentPost);
+      }
+      
     }
 
     loadPosts();
   }, []);
 
   //filter through posts to get param 
-  if (dP === singlePost) {
-    const currentPost = singlePost.filter((specPost) => {
-      console.log("hello")
-      return dP === specPost;
-    });
 
-    setSinglePost(currentPost);
-  }
 }
 //set the state pf singlePost to those params
 
