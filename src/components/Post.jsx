@@ -4,6 +4,7 @@ import CreateNewPost from "../components/Createpost";
 import { deletePost } from "../api/auth";
 import useAuth from "../Hooks/Authhook";
 import { useNavigate } from "react-router-dom";
+import Searchbar from "./Searchbar";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
@@ -21,6 +22,7 @@ export default function Posts() {
   }, []);
   return (
     <div key={posts._id}>
+      <Searchbar />
       <CreateNewPost />
       {posts.map((post) => {
         return (
