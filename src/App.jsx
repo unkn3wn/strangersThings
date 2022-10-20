@@ -23,6 +23,8 @@ function App() {
 
         <Route path="/auth/:method" element={<Auth setToken={setToken} />} />
 
+        
+
       </Routes>
     </div>
   );
