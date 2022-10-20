@@ -92,24 +92,14 @@ export const deletePost = async (token, id) => {
 
 }
 
-export const singlePost = async (title, description, price, location, author) => {
+export const singlePost = async (id) => {
     const response = await fetch(
-        'https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts', {
+        `https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts/${id}`, 
 
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-            post: {
-                title,
-                description,
-                price,
-                location,
-                author,
-            }
-        })
-    }
-    )
+      
+        
+    );
+        const result = await response.json();
+        return result;
+
 };

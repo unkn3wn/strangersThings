@@ -2,9 +2,11 @@ import React from "react";
 import { createPost } from "../api/auth";
 import { useState } from "react";
 import useAuth from "../Hooks/Authhook";
-
+import {useNavigate} from "react-router-dom";
 
 function CreateNewPost() {
+  
+  const nav = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -17,10 +19,10 @@ function CreateNewPost() {
         onSubmit={async (event) => {
           event.preventDefault();
           const result = await createPost(token, title, description, price);
+          nav("/");
           setTitle("");
           setDescription("");
-          setPrice("");
-          
+          setPrice("");  
           console.log(result);
           console.log(token);
         }}
@@ -60,7 +62,8 @@ function CreateNewPost() {
           }}
         />
 
-        <button type="submit">Submit</button>
+        <button type="submit" >Submit</button>
+        
       </form>
     </div>
   );
