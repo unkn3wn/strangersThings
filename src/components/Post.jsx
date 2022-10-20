@@ -3,12 +3,11 @@ import { fetchPosts } from "../api/auth";
 import CreateNewPost from "../components/Createpost";
 import { deletePost } from "../api/auth";
 import useAuth from "../Hooks/Authhook";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
   const { token } = useAuth();
-  const { postId } = useParams();
 
   const navigate = useNavigate();
 
@@ -32,7 +31,7 @@ export default function Posts() {
 
             <button
               onClick={() => {
-                navigate(`/post/${postId}`)
+                navigate(`/post/${posts._id}`)
               }}
             >
               See Details
