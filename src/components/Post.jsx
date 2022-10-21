@@ -4,11 +4,11 @@ import CreateNewPost from "../components/Createpost";
 import { deletePost } from "../api/auth";
 import useAuth from "../Hooks/Authhook";
 import { useNavigate } from "react-router-dom";
-import SearchBar from "./Searchbar";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
   const { token } = useAuth();
+  const [searchTerm, setSearchTerm] = useState('');
 
   const navigate = useNavigate();
 
@@ -20,14 +20,26 @@ export default function Posts() {
 
     loadPosts();
   }, []);
+  function postMatches(post, text) {
+    return post.title.toLowerCase().includes(text);
+  }
+  const filteredPosts = posts.filter(post => postMatches(post, searchTerm));
+  const postsToDisplay = searchTerm.length ? filteredPosts : posts;
   return (
     <div key={posts._id}>
-      <SearchBar />
-
+      <input
+        type="text"
+        value={searchTerm}
+        placeHolder="Search"
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <CreateNewPost />
-      {posts.map((post) => {
+      {postsToDisplay.map((post) => {
         return (
           <div key={post.title}>
+
+
+            <div />
             <h3>{post.title}</h3>
             <h3>{post.description}</h3>
             <h4>{post.price}</h4>
@@ -61,7 +73,9 @@ export default function Posts() {
             </button>
           </div>
         );
+
       })}
     </div>
   );
 }
+
