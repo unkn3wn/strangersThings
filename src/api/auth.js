@@ -98,7 +98,7 @@ export const deletePost = async (token, id) => {
   return result;
 };
 
-export const user = async (token) => {
+export const userInfo = async (token) => {
   const response = await fetch(
     "https://strangers-things.herokuapp.com/api/COHORT-NAME/users/me",
     {

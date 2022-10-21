@@ -9,6 +9,7 @@ export default function Navbar({ setToken }) {
       <Link to="/post">POSTS</Link>
       <Link to="/auth/login">Login</Link>
       <Link to="/auth/register">Register</Link>
+      <Link to="/user">User</Link>
     </div>
   );
 }

@@ -13,7 +13,6 @@ const SpecificPost = () => {
   useEffect(() => {
     async function loadPosts() {
       const result = await fetchPosts();
-      console.log("posts", result.data.posts);
       const posts = result.data.posts;
       const [post] = posts.filter((specPost) => {
         return specPost._id === id;

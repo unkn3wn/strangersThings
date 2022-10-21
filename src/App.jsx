@@ -7,6 +7,7 @@ import Auth from "./components/Auth";
 import useAuth from "./Hooks/Authhook";
 import CreateNewPost from "./components/Createpost";
 import Postdetails from "./components/Postdetails"
+import User from "./components/User";
 
 function App() {
   const { setToken } = useAuth();
@@ -20,12 +21,12 @@ function App() {
         <Route path="/CreateNewPost" element={<CreateNewPost />} />
         <Route path="/posts/:id" element={<Postdetails />} />
         <Route path="/auth/:method" element={<Auth setToken={setToken} />} />
-
+        <Route path="/user" element={<User />} />
 
 
       </Routes>
     </div>
-  );    
+  );
 }
 
 export default App;
