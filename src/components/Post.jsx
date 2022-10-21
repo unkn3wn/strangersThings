@@ -22,7 +22,6 @@ export default function Posts() {
   }, []);
   return (
     <div key={posts._id}>
-
       <SearchBar />
 
       <CreateNewPost />
@@ -35,7 +34,7 @@ export default function Posts() {
 
             <button
               onClick={() => {
-                navigate(`/posts/${post._id}`)
+                navigate(`/posts/${post._id}`);
               }}
             >
               See Details

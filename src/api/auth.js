@@ -111,3 +111,23 @@ export const userInfo = async (token) => {
   const result = await response.json();
   return result;
 };
+
+export const messages = async (token, id) => {
+  const response = await fetch(
+    `https://strangers-things.herokuapp.com/api/COHORT-NAME/posts/${id}/messages`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        message: {
+          content,
+        },
+      }),
+    }
+  );
+
+  const result = await response.json();
+  return result;
+};

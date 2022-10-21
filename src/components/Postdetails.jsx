@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { fetchPosts } from "../api/auth";
 
 const SpecificPost = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [singlePost, setSinglePost] = useState({});
 
@@ -31,15 +32,16 @@ const SpecificPost = () => {
       <h2>{singlePost.price}</h2>
       <h3>{singlePost.description}</h3>
       <form>
-        <input
-          type="text"
-          placeholder="Send a Message"
-        />
-        <button type="submit">
+        <input type="text" placeholder="Send a Message" />
+        <button
+          type="submit"
+          onClick={() => {
+            navigate("/post");
+          }}
+        >
           Send!
         </button>
       </form>
-
     </div>
   );
 };
