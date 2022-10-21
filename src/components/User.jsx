@@ -4,7 +4,7 @@
 
 //render user info
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import { userInfo } from "../api/auth"
 
@@ -12,23 +12,31 @@ import useAuth from "../Hooks/Authhook";
 
 const User = () => {
     const { token } = useAuth();
-    const [user, setUser] = useState();
+    const [user, setUser] = useState([]);
 
     useEffect(() => {
         async function loadUserData() {
-            const result = await userInfo();
-            console.log(result);
-            setUser(user);
+            const result = await userInfo(token);
+            const userPosts = result.data.posts
+            console.log("userposts", userPosts);
+            setUser(userPosts);
         }
 
         loadUserData();
     }, []);
-
     return (
-        <div><h2>User</h2></div>
+        <div key={user._id}>
+            {user.map((post) => {
+                if (post.active) {
+                    return (
+                        <div>
+                            <h2>{post.title}</h2>
+                        </div>
+                    );
+                }
+            })}
+        </div>
     )
-
-
 }
 
 export default User 

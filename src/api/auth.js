@@ -100,7 +100,7 @@ export const deletePost = async (token, id) => {
 
 export const userInfo = async (token) => {
   const response = await fetch(
-    "https://strangers-things.herokuapp.com/api/COHORT-NAME/users/me",
+    "https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/users/me",
     {
       headers: {
         "Content-Type": "application/json",

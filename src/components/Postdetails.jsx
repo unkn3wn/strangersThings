@@ -30,7 +30,16 @@ const SpecificPost = () => {
       <h2>{singlePost.location}</h2>
       <h2>{singlePost.price}</h2>
       <h3>{singlePost.description}</h3>
-      <h3>{singlePost.author.username}</h3>
+      <form>
+        <input
+          type="text"
+          placeholder="Send a Message"
+        />
+        <button type="submit">
+          Send!
+        </button>
+      </form>
+
     </div>
   );
 };
