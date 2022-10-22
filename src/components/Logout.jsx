@@ -5,6 +5,9 @@ export default function LogoutUser({ setToken }) {
             onClick={() => {
                 localStorage.removeItem("token");
                 setToken("");
+                if (setToken === "") {
+                    button.display = 'block';
+                }
             }}
         >
             Log Out

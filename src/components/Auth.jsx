@@ -24,7 +24,6 @@ const Login = ({ setToken }) => {
           } else {
             result = await loginUser(username, password);
           }
-          console.log(result);
           const token = result.data.token;
           localStorage.setItem("token", token);
           setToken(token);
@@ -48,6 +47,8 @@ const Login = ({ setToken }) => {
         </button>
       </form>
     </div>
+
+
 
   )
 

@@ -27,6 +27,7 @@ export default function Posts() {
   const postsToDisplay = searchTerm.length ? filteredPosts : posts;
   return (
     <div key={posts._id}>
+      <h5>Please search in lowercase!</h5>
       <input
         type="text"
         value={searchTerm}
@@ -41,7 +42,6 @@ export default function Posts() {
 
             <div />
             <h3>{post.title}</h3>
-            <h3>{post.description}</h3>
             <h4>{post.price}</h4>
 
             <button

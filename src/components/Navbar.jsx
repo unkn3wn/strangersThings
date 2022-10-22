@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import LogoutUser from "./Logout";
+import useAuth from "../Hooks/Authhook";
 
 export default function Navbar({ setToken }) {
+  const { token } = useAuth();
   return (
     <div>
       <LogoutUser setToken={setToken} />
