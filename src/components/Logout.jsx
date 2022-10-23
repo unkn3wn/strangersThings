@@ -1,13 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import styles from "../ComponentCss/Navbar.module.css"
+
 export default function LogoutUser({ setToken }) {
 
+    const navigate = useNavigate();
+
     return (
-        <button
+        <button className={styles.logout}
             onClick={() => {
                 localStorage.removeItem("token");
                 setToken("");
-                if (setToken === "") {
-                    button.display = 'block';
-                }
+                navigate("/auth/login")
             }}
         >
             Log Out

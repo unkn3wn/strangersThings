@@ -9,8 +9,8 @@ import CreateNewPost from "./components/Createpost";
 import Postdetails from "./components/Postdetails"
 import User from "./components/User";
 
-function App(logIn) {
-  const { setToken } = useAuth();
+function App() {
+  const { token, setToken } = useAuth();
   return (
     <div>
       <Navbar setToken={setToken} />

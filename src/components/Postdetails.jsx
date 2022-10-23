@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchPosts } from "../api/auth";
+import { messages } from "../api/auth";
+import useAuth from "../Hooks/Authhook";
 
 const SpecificPost = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { token } = useAuth();
+
+  const [content, setContent] = useState("");
 
   const [singlePost, setSinglePost] = useState({});
 
@@ -31,13 +36,26 @@ const SpecificPost = () => {
       <h2>{singlePost.location}</h2>
       <h2>{singlePost.price}</h2>
       <h3>{singlePost.description}</h3>
-      <form>
-        <input type="text" placeholder="Send a Message" />
+      <form
+        onSubmit={async (event) => {
+          event.preventDefault();
+          const result = await messages(token, content);
+          setContent("")
+          console.log("messages", result);
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Send a Message"
+          variant="standard"
+          value={content}
+          onChange={(event) => {
+            setContent(event.target.value);
+
+          }}
+        />
         <button
           type="submit"
-          onClick={() => {
-            navigate("/post");
-          }}
         >
           Send!
         </button>

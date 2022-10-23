@@ -22,7 +22,8 @@ function Homepage() {
 
     return (
         <div className="App">
-            <h4>{user?.username}</h4>
+            <h4>You are logged in as: {user?.username}</h4>
+            <h4>Enjoy Your Stay!</h4>
         </div>
     );
 }

@@ -112,10 +112,11 @@ export const userInfo = async (token) => {
   return result;
 };
 
-export const messages = async (token, id) => {
+export const messages = async (token, id, content) => {
   const response = await fetch(
-    `https://strangers-things.herokuapp.com/api/COHORT-NAME/posts/${id}/messages`,
+    `https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts/${id}/messages`,
     {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,

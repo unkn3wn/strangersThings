@@ -2,12 +2,13 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react"
 import { loginUser, registerUser } from "../api/auth"
+import { useNavigate } from "react-router-dom";
 
 
 
 const Login = ({ setToken }) => {
   const { method } = useParams();
-
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +18,6 @@ const Login = ({ setToken }) => {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-
           let result;
           if (method === 'register') {
             result = await registerUser(username, password);
@@ -28,6 +28,7 @@ const Login = ({ setToken }) => {
           localStorage.setItem("token", token);
           setToken(token);
           console.log(token);
+          navigate("/user")
         }}
       >
         <input

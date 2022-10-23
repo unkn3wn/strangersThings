@@ -13,22 +13,37 @@ import { useNavigate } from "react-router-dom";
 
 const User = () => {
     const { token } = useAuth();
-    const [user, setUser] = useState([]);
+    const [userpost, setUserPost] = useState([]);
+    const [usermessage, setUserMessage] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        async function loadUserData() {
+        async function loadUserPosts() {
             const result = await userInfo(token);
+            console.log("result", result)
             const userPosts = result.data.posts
             console.log("userposts", userPosts);
-            setUser(userPosts);
+            setUserPost(userPosts);
         }
 
-        loadUserData();
+        loadUserPosts();
     }, []);
+
+    useEffect(() => {
+        async function loadUserMsgs() {
+            const result = await userInfo(token);
+            const userMsgs = result.data.messages
+            console.log("userMsgs", userMsgs);
+            setUserMessage(userMsgs);
+        }
+
+        loadUserMsgs();
+    }, []);
+
     return (
-        <div key={user._id}>
-            {user.map((post) => {
+        <div key={userpost._id}>
+            <h1>Your Posts</h1>
+            {userpost.map((post) => {
                 if (post.active === true) {
                     return (
                         <div>
@@ -44,7 +59,16 @@ const User = () => {
                     );
                 }
             })}
+            <h1>Your Messages</h1>
+            {usermessage.map((message) => {
+                return (
+                    <div>
+                        <h2>{message.content}</h2>
+                    </div>
+                );
+            })}
         </div>
+
     )
 }
 

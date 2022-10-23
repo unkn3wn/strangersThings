@@ -1,0 +1,55 @@
+.auth {
+    display: flex;
+    margin: 10px;
+    padding: 5px;
+    justify-content: space-evenly;
+}
+
+.login {
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 20px;
+    padding: 5px;
+    background-color: #d8f6f8;
+}
+
+.register {
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 20px;
+    padding: 5px;
+    background-color: #d8f6f8;
+}
+
+.home {
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 20px;
+    padding: 5px;
+    background-color: #d8f6f8;
+}
+
+.post {
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 20px;
+    padding: 5px;
+    background-color: #d8f6f8;
+}
+
+.user {
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 20px;
+    padding: 5px;
+    background-color: #d8f6f8;
+}
+
+.logout {
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 20px;
+    padding-bottom: 20px;
+    background-color: #d8f6f8;
+    color: blue;
+}
