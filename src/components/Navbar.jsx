@@ -15,10 +15,10 @@ export default function Navbar({ setToken }) {
   } else
     return (
       <div className={styles.auth}>
-        <Link className={styles.home} to="/">Homepage</Link>
-        <Link className={styles.post} to="/post">Posts</Link>
-        <Link className={styles.user} to="/user">User</Link>
-        <LogoutUser className={styles.logout} setToken={setToken} />
+        <Link className={styles.nav} to="/">Homepage</Link>
+        <Link className={styles.nav} to="/post">Posts</Link>
+        <Link className={styles.nav} to="/user">User</Link>
+        <LogoutUser className={styles.nav} setToken={setToken} />
       </div>
     );
 }

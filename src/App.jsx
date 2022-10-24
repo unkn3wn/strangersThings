@@ -1,4 +1,3 @@
-import "./App.css";
 import Homepage from "./components/Home";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";

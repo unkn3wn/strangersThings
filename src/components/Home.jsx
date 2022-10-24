@@ -1,6 +1,7 @@
 
 import { fetchMe } from "../api/auth"
 import { useEffect, useState } from "react"
+import styles from "../ComponentCss/Welcomepage.module.css"
 
 function Homepage() {
 
@@ -21,9 +22,9 @@ function Homepage() {
     }, [token]);
 
     return (
-        <div className="App">
-            <h4>You are logged in as: {user?.username}</h4>
-            <h4>Enjoy Your Stay!</h4>
+        <div >
+            <h4 className={styles.Welcomescreen}>You are logged in as: {user?.username}</h4>
+            <h4 className={styles.Welcomescreen}>Enjoy Your Stay!</h4>
         </div>
     );
 }

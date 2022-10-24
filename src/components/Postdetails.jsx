@@ -10,9 +10,9 @@ const SpecificPost = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
 
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState([]);
 
-  const [singlePost, setSinglePost] = useState({});
+  const [singlePost, setSinglePost] = useState([]);
 
   // get fetchposts
 
@@ -39,7 +39,7 @@ const SpecificPost = () => {
       <form
         onSubmit={async (event) => {
           event.preventDefault();
-          const result = await messages(token, content);
+          const result = await messages(singlePost._id, token, content);
           setContent("")
           console.log("messages", result);
         }}
@@ -51,7 +51,6 @@ const SpecificPost = () => {
           value={content}
           onChange={(event) => {
             setContent(event.target.value);
-
           }}
         />
         <button

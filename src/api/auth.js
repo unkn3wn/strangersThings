@@ -112,7 +112,7 @@ export const userInfo = async (token) => {
   return result;
 };
 
-export const messages = async (token, id, content) => {
+export const messages = async (id, token, content) => {
   const response = await fetch(
     `https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts/${id}/messages`,
     {
