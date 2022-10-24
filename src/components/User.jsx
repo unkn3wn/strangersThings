@@ -7,9 +7,11 @@
 import { useState, useEffect } from "react"
 
 import { userInfo } from "../api/auth"
+import { deletePost } from "../api/auth";
 
 import useAuth from "../Hooks/Authhook";
 import { useNavigate } from "react-router-dom";
+import styles from "../ComponentCss/User.module.css"
 
 const User = () => {
     const { token } = useAuth();
@@ -41,12 +43,12 @@ const User = () => {
     }, []);
 
     return (
-        <div key={userpost._id}>
-            <h1>Your Posts</h1>
+        <div className={styles.user} key={userpost._id}>
+            <h1 className={styles.userpoststitle}>Your Posts</h1>
             {userpost.map((post) => {
                 if (post.active === true) {
                     return (
-                        <div>
+                        <div className={styles.userposts}>
                             <h2>{post.title}</h2>
                             <button
                                 onClick={() => {
@@ -55,19 +57,39 @@ const User = () => {
                             >
                                 Go to Post
                             </button>
+
+                            <button
+                                onClick={async () => {
+                                    const deletedPost = await deletePost(token, post._id);
+                                    console.log(deletedPost);
+
+
+                                    if (deletedPost.success) {
+                                        const currentPost = userpost.filter((singlePost) => {
+                                            return singlePost._id !== post._id;
+                                        });
+
+                                        setUserPost(currentPost);
+                                    }
+                                }}
+                            >
+                                Delete
+                            </button>
                         </div>
                     );
                 }
             })}
-            <h1>Your Messages</h1>
-            {usermessage.map((message) => {
-                return (
-                    <div>
-                        <h2>{message.content}</h2>
-                    </div>
-                );
-            })}
-        </div>
+            <h1 className={styles.usermessagetitle}>Your Messages</h1>
+            {
+                usermessage.map((message) => {
+                    return (
+                        <div className={styles.usermessage}>
+                            <h2>{message.content}</h2>
+                        </div>
+                    );
+                })
+            }
+        </div >
 
     )
 }

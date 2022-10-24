@@ -2,10 +2,11 @@ import React from "react";
 import { createPost } from "../api/auth";
 import { useState } from "react";
 import useAuth from "../Hooks/Authhook";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import styles from "../ComponentCss/Post.module.css"
 
 function CreateNewPost() {
-  
+
   const nav = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -14,7 +15,7 @@ function CreateNewPost() {
   const { token } = useAuth();
 
   return (
-    <div>
+    <div className={styles.heading}>
       <form
         onSubmit={async (event) => {
           event.preventDefault();
@@ -22,12 +23,12 @@ function CreateNewPost() {
           nav("/");
           setTitle("");
           setDescription("");
-          setPrice("");  
+          setPrice("");
           console.log(result);
           console.log(token);
         }}
       >
-        <h3>Create Post</h3>
+        <h3 className={styles.label}>Create Post</h3>
         <label>Title:</label>
         <input
           variant="standard"
@@ -36,7 +37,7 @@ function CreateNewPost() {
           placeholder="title"
           onChange={(event) => {
             setTitle(event.target.value);
-           
+
           }}
         />
         <label>Description:</label>
@@ -47,7 +48,7 @@ function CreateNewPost() {
           placeholder="description"
           onChange={(event) => {
             setDescription(event.target.value);
-           
+
           }}
         />
         <label>Price</label>
@@ -58,12 +59,12 @@ function CreateNewPost() {
           placeholder="price"
           onChange={(event) => {
             setPrice(event.target.value);
-            
+
           }}
         />
 
         <button type="submit" >Submit</button>
-        
+
       </form>
     </div>
   );

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react"
 import { loginUser, registerUser } from "../api/auth"
 import { useNavigate } from "react-router-dom";
+import styles from "../ComponentCss/Auth.module.css"
 
 
 
@@ -14,7 +15,7 @@ const Login = ({ setToken }) => {
 
   return (
 
-    <div>
+    <div className={styles.auth}>
       <form
         onSubmit={async (e) => {
           e.preventDefault();
