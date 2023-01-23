@@ -2,7 +2,7 @@
 
 .searchslangInput {
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
   justify-content: center;
 }
 .searchSlang {
@@ -17,18 +17,46 @@
   width: 300px;
 }
 
-.postlist{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.postlist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.cards{
-    color: yellow;
-    background-color: black;
-    margin-left: 20px;
+.cards {
+  color: yellow;
+  background-color: black;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 200px;
+  margin-top: 10px;
+  width: 300px;
+}
+
+
+.pricebutton{
+    display: flex;
     margin-top: 20px;
-    height: 100px;
-    margin-top: 10px;
-    width: 250px;
+
+}
+.detailbutton{
+    margin-left: 20px;
+
+}
+.price{
+    margin-left: 75px;
+}
+
+.title {
+  text-align: center;
+  text-decoration: underline;
+  letter-spacing: 2px;
+  
+}
+
+@media only screen and (max-width: 500px) {
+  .postlist{
+   display: flex;
+   justify-content: center;
+  }
 }

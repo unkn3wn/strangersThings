@@ -36,21 +36,25 @@ export default function Posts() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      {/* 
-      <CreateNewPost /> */}
+      
+      <CreateNewPost />
       <div className={styles.postlist}>
         {postsToDisplay.map((post) => {
           return (
             <div className={styles.cards} key={post.title}>
-              <h3>{post.title}</h3>
-              <h4>{post.price}</h4>
+              <h3 className={styles.title}>{post.title}</h3>
+              <div className={styles.pricebutton}>
+                <h4 className={styles.price}>{post.price}</h4>
               <button
+              className={styles.detailbutton}
                 onClick={() => {
                   navigate(`/posts/${post._id}`);
                 }}
               >
                 See Details
               </button>
+                </div>
+              
             </div>
           );
         })}

@@ -24,10 +24,10 @@ export default function Navbar({ setToken }) {
   }
   return (
     <div className={styles.auth}>
-      <Link className={styles.login} to="/auth/login">
+      <Link className={styles.nav} to="/auth/login">
         Login
       </Link>
-      <Link className={styles.register} to="/auth/register">
+      <Link className={styles.nav} to="/auth/register">
         Register
       </Link>
     </div>

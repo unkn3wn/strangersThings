@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { fetchPosts } from "../api/auth";
 import { messages } from "../api/auth";
 import useAuth from "../Hooks/Authhook";
+import styles from "../ComponentCss/PostDetail.module.css";
 
 const SpecificPost = () => {
   const { id } = useParams();
@@ -31,19 +32,21 @@ const SpecificPost = () => {
 
   //filter through posts to get param
   return (
-    <div>
-      <h2>{singlePost.title}</h2>
-      <h2>{singlePost.location}</h2>
-      <h2>{singlePost.price}</h2>
-      <h3>{singlePost.description}</h3>
+    <div className={styles.main}>
+      <h1 className={styles.wording}>Title: {singlePost.title}</h1>
+      <h3 className={styles.wording}>Description: {singlePost.description}</h3>
+      <h4 className={styles.wording}>Location: {singlePost.location}</h4>
+
+      <h4 className={styles.wording}>Price: ${singlePost.price}</h4>
       <form
         onSubmit={async (event) => {
           event.preventDefault();
           const result = await messages(singlePost._id, token, content);
-          setContent("")
+          setContent("");
           console.log("messages", result);
         }}
       >
+        <label>Send A Message</label>
         <input
           type="text"
           placeholder="Send a Message"
@@ -53,17 +56,10 @@ const SpecificPost = () => {
             setContent(event.target.value);
           }}
         />
-        <button
-          type="submit"
-        >
-          Send!
-        </button>
+        <button type="submit">Send!</button>
       </form>
     </div>
   );
 };
-//set the state pf singlePost to those params
-
-//return display of more details
 
 export default SpecificPost;
