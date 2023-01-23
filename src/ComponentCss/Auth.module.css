@@ -1,10 +1,25 @@
-.auth {
-    display: flex;
-    margin-top: 300px;
-    margin-bottom: 10px;
-    justify-content: center;
-    flex-direction: row;
-    padding: 10px;
-    background-color: white;
-    height: 1000px;
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  text-align: center;
+  text-decoration: underline;
+  letter-spacing: 4px;
+}
+.formInputs {
+  margin-top: 20px;
+}
+
+.subButton {
+  width: 100px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }

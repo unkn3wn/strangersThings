@@ -11,6 +11,8 @@ export default function LogoutUser({ setToken }) {
                 localStorage.removeItem("token");
                 setToken("");
                 navigate("/auth/login")
+                location.reload(true)
+            
             }}
         >
             Log Out

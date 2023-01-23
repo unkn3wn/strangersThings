@@ -22,7 +22,8 @@ function Homepage() {
     }, [token]);
 
     return (
-        <div >
+        <div className={styles.welcomeSlang}>
+            <h1>Welcome to Strangers Things</h1>
             <h4 className={styles.Welcomescreen}>You are logged in as: {user?.username}</h4>
             <h4 className={styles.Welcomescreen}>Enjoy Your Stay!</h4>
         </div>
