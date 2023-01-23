@@ -6,7 +6,8 @@ export default function LogoutUser({ setToken }) {
     const navigate = useNavigate();
 
     return (
-        <button className={styles.logoutBTN}
+        <button 
+        className={styles.nav}
             onClick={() => {
                 localStorage.removeItem("token");
                 setToken("");
